@@ -1,0 +1,82 @@
+import java.awt.Color;
+
+import teachnet.algorithm.BasicAlgorithm;
+
+
+public class Echo extends BasicAlgorithm {
+
+	public static final Color INIT_COLOR = Color.WHITE;
+	public static final Color INFORMED_COLOR = Color.RED;
+	public static final Color COMPLETE_COLOR = Color.GREEN;
+	
+	int id;
+	int count;
+	boolean informed;
+	int parent;
+	
+	Color color = null;
+	int markInterface = -1;
+	String caption;
+	
+	private boolean isInitiator() {
+		return id == 0;
+	}
+	
+	private void setInformed(int markInterf) {
+		this.informed = true;
+		//this.markInterface = markInterf;
+		this.color = INFORMED_COLOR;
+	}
+	
+	public void setup(java.util.Map<String, Object> config)
+	{
+		id = (Integer) config.get("node.id");
+		if(this.isInitiator())
+			caption = "Initiator";
+		else
+			caption = "" + id;
+		color = INIT_COLOR;
+	}
+	
+	@Override
+	public void initiate() {
+		informed = false;
+		count = 0;
+		parent = -1;
+		
+		if(this.isInitiator()) {
+			this.setInformed(-1);
+			
+			for(int i=0; i<this.checkInterfaces(); ++i) {
+				send(i, new EchoMsg(EchoMsg.EXPLORER));
+			}
+		}
+	}
+
+	@Override
+	public void receive(int interf, Object message) {
+		
+		EchoMsg msg = (EchoMsg)message;
+		
+
+		if(!informed) {
+			this.setInformed(interf);
+			this.parent = interf;
+			for(int i=0; i<this.checkInterfaces(); ++i) {
+				if(i != this.parent)
+					send(i, new EchoMsg(EchoMsg.EXPLORER));
+			}
+		}
+		count++;
+		if(count == this.checkInterfaces()) {
+			if(!this.isInitiator()) {
+				send(parent, new EchoMsg(EchoMsg.ECHO) );
+			}
+			this.done();
+		}
+	}
+	
+	public void done() {
+		this.color = COMPLETE_COLOR;
+	}
+}

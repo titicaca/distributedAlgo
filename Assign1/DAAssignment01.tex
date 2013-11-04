@@ -1,0 +1,76 @@
+\documentclass[a4paper, 14pt]{article}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\title{\bf Assignment 01}
+\author{Xugang Zhou \\ Fangzhou Yang \\ Yuwen Chen}
+\pagestyle{fancy}
+\lhead{{\bf Distributed Algorithms}\\WS 2013/14, Prof. Dr.-Ing. Jan Richling}
+\rhead{Assignmen 01}
+\renewcommand{\headrulewidth}{0.4pt}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\vfill
+\textsc{\LARGE Distributed Algorithms}\\[1.5cm]
+\textsc{\Large }\\[0.5cm]
+
+\HRule \\[0.4cm]
+{\huge \bfseries Assignment 01}\\[0.4cm]
+\HRule \\[1.5cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Group Members:}\\
+Xugang \textsc{Zhou}\\
+Fangzhou \textsc{Yang}\\
+Yuwen \textsc{Chen}
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Tutor:} \\
+Daniel \textsc{Graff}\\
+\end{flushright}
+\end{minipage}
+\vfill
+{\large \today}\\
+\end{center}
+\end{titlepage}
+\thispagestyle{fancy}
+\section{Warming Up}
+\begin{itemize}
+\item[a.] The difference between a distributed system and a parallel
+  system is that: {\bf A parallel system has a common physical memnory,
+  while computers in a distributed system loosely connect to each
+  other and communicate through message exchange.}
+\item[b.] A complicated distributed system can be used to check
+  whether an algorithm is reliable. For example, we can use
+  a complicated distributed system to model the real network which can
+  be used to test a certain mechanism in the network. With more
+  complexity, there's a greater change that there would appear a bug.
+\item[c.] Difference between {\it Synchronous System Model} and {\it
+    Asynchronous System Model} is the maximum duration of an action or
+  a message. In {\it Synchronous System Model}, they are assumed
+  restricted or known. But in {\it Asynchronous System Model}, their
+  limits are unknown.
+On the other hand, {\it Atom Model} is similar to {\it Synchronous
+  System Model}, but its actions are timeless.
+\end{itemize}
+\section{Topologies}
+The number of possible spanning trees that can be generated from a d
+dimension Hypercube is:\\
+\begin{equation}
+c(C(d)) = \prod_{k=2}^{d}(2k)^{d \choose k}
+\end{equation}
+In order to execute the broadcast withour interfering each
+other. Besides simple broadcast information, we let each node (node U,
+e.x.) send a node sets $U_{send}$ to the broadcasted node (node V
+e.x.). So that:\\
+\begin{equation}
+V_{receive} = U_{send} = U_{receive} \cup neighbour(U)
+\end{equation}
+Which means V won't broadcast the information to the node set
+$V_{receive}$. \\
+\section{Flooding with Achnowledgments}
+\section{Echo Algorithm}
+\end{document}
