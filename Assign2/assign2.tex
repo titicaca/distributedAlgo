@@ -2,11 +2,11 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-\title{\bf Assignment 01}
+\title{\bf Assignment 02}
 \author{Xugang Zhou \\ Fangzhou Yang \\ Alexander Graf}
 \pagestyle{fancy}
 \lhead{{\bf Distributed Algorithm}\\WS 2013/14, Prof. Dr.-Ing. Jan Richling}
-\rhead{Assignmen 01}
+\rhead{Assignmen 02}
 \renewcommand{\headrulewidth}{0.4pt}
 \begin{document}
 \begin{titlepage}
@@ -16,7 +16,7 @@
 \textsc{\Large }\\[0.5cm]
 
 \HRule \\[0.4cm]
-{\huge \bfseries Assignment 01}\\[0.4cm]
+{\huge \bfseries Assignment 02}\\[0.4cm]
 \HRule \\[1.5cm]
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
@@ -37,5 +37,17 @@ Daniel \textsc{Graff}\\
 \end{center}
 \end{titlepage}
 \thispagestyle{fancy}
-\section{}
+
+\section{Echo}
+The basic idea of improvement of the Echo-Algorithm by sending taboo nodes is to avoid the visit of nodes which are known to be visited by other exploers.
+\begin {itemize}
+\item {\bf a. Ring with n nodes} \\
+In this structure, the number of edge and the number of nodes are both n, so the needed number of messages for a normal Echo-Algorithm is 2n. \\
+For Echo-Algorithm with taboo nodes, it only needs n messages, because the message goes only forwards.
+\item {\bf b. Binary X-tree of height h}\\
+In this structure, the number of nodes $n = 2^{h+1} - 1$, the number of edges $e = 2n - h -2 = 2^{h+2} - h -4$, so the needed number of messages for a normal Echo-Algorithm is $2*n = 2^{h+2}$.\\
+For Echo-Algorithm with taboo nodes, because of the taboo nodes, the messages will not be delivered between sons of a same parent, therefore the number of needed messages is $2*(n - (2^{h} -1)) = 2^{h+1}$
+\end {itemize}
 \end{document}
+
+
