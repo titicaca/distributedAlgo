@@ -2,11 +2,11 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-\title{\bf Assignment 02}
+\title{\bf Assignment 01}
 \author{Xugang Zhou \\ Fangzhou Yang \\ Alexander Graf}
 \pagestyle{fancy}
 \lhead{{\bf Distributed Algorithm}\\WS 2013/14, Prof. Dr.-Ing. Jan Richling}
-\rhead{Assignmen 02}
+\rhead{Assignmen 01}
 \renewcommand{\headrulewidth}{0.4pt}
 \begin{document}
 \begin{titlepage}
@@ -16,7 +16,7 @@
 \textsc{\Large }\\[0.5cm]
 
 \HRule \\[0.4cm]
-{\huge \bfseries Assignment 02}\\[0.4cm]
+{\huge \bfseries Assignment 01}\\[0.4cm]
 \HRule \\[1.5cm]
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
@@ -37,6 +37,9 @@ Yuwen \textsc{Chen} & 352038
 \end{center}
 \end{titlepage}
 \thispagestyle{fancy}
+<<<<<<< HEAD
+\section{}
+=======
 
 \section{Echo}
 The basic idea of improvement of the Echo-Algorithm by sending taboo nodes is to avoid the visit of nodes which are known to be visited by other exploers.
@@ -91,4 +94,5 @@ If $1_a$ and $1_b$ start the initiate procedure at the same time, $1_b$ will rec
 	Assume that the initiator with largest ID is $n_w$. Considering two nodes $n_1$ and $n_1'$ with the same ID also participate in the election. The conflict described above will arise so that both of them would think they have won the game and set the local winner record $M_p$ to their own ID. However, as they received a message from $n_w$, they will still update their $M_p$ to $n_w$'s ID and forward it to next node, which means the algorithm continues running. The fake notifications produced by $n_1$ and $n_1'$ will also be overwritten by the notification sent from $n_w$, so that every node know finally that the winner is $n_w$. 
 \end{enumerate}
 \end{enumerate}
+>>>>>>> 7ee4a6b7d0cb14a5e5f8cda9df888d4ef4018e48
 \end{document}

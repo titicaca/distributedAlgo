@@ -1,0 +1,89 @@
+import java.awt.Color;
+
+import teachnet.algorithm.BasicAlgorithm;
+
+/**
+ * Group 11
+ * Yuwen Chen,    352038
+ * Fangzhou Yang, 352040
+ * Xugang Zhou,   352032
+ * 
+ * Implementation of Election Algorithm
+ */
+public class Election extends BasicAlgorithm{
+	
+	public static final Color SLEEP_COLOR = Color.WHITE;
+	public static final Color AWAKE_COLOR = Color.RED;
+	public static final Color WINNER_COLOR = Color.YELLOW;
+	public static final Color LOSER_COLOR = Color.GRAY;
+	public static final Color DONE_COLOR = Color.GREEN;
+	
+	int leader = 0;
+	int id;
+	
+	boolean isInitiator = false;
+	boolean isWinner = false;
+	
+	Color color = null;
+	String caption = "";
+	
+	public void setup(java.util.Map<String, Object> config) {
+		id = (Integer) config.get("node.id");
+		caption = "ID:" + id + " Mp:" + leader;
+		color = SLEEP_COLOR;
+	}
+	
+	/**
+	 * Send a message to successor
+	 * Here the fixed interface 1 is assumed to be the path to next node (while 0 for previous node)
+	 * @param msg
+	 */
+	private void sendToNext(ElectionMsg msg) {
+		send(1, msg);
+	}
+	
+	@Override
+	public void initiate() {
+		color = AWAKE_COLOR;
+		leader = id;
+		caption = "ID:" + id + " Mp:" + leader + "(Initiator)";
+		this.isInitiator = true;
+		this.sendToNext(new ElectionMsg(ElectionMsg.ELECTION, leader));
+	}
+
+	@Override
+	public void receive(int arg0, Object arg1) {
+		ElectionMsg msg = (ElectionMsg) arg1;
+		int elected = msg.getMsg();
+		
+		// forward notification
+		if(msg.isNotification()) {
+			if(!this.isWinner) {
+				this.leader = elected;
+				this.caption = "ID:" + id + " Mp:" + leader;
+				this.color = DONE_COLOR;
+				this.sendToNext(msg);
+			}
+		} 
+		else {
+			//Chang and Roberts algorithm
+			if (this.leader < elected) {
+				//a initiator who got a larger id knows it looses 
+				if(this.isInitiator) color = LOSER_COLOR;
+//				else color = AWAKE_COLOR;
+				
+				this.leader = elected;
+				caption = "ID:" + id + " Mp:" + leader;
+				this.sendToNext(new ElectionMsg(ElectionMsg.ELECTION, leader));
+	
+			}
+			if (elected == id) {
+				color = WINNER_COLOR;
+				caption = "ID:" + id + " Mp:" + leader + " Winner!!";
+				this.isWinner = true;
+				this.sendToNext(new ElectionMsg(ElectionMsg.NOTIFICATION, leader));
+			}
+		}
+	}
+	
+}
