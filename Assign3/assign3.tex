@@ -1,0 +1,54 @@
+\documentclass[a4paper, 14pt]{article}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\title{\bf Assignment 03}
+\author{Xugang Zhou \\ Fangzhou Yang \\ Alexander Graf}
+\pagestyle{fancy}
+\lhead{{\bf Distributed Algorithm}\\WS 2013/14, Prof. Dr.-Ing. Jan Richling}
+\rhead{Assignmen 02}
+\renewcommand{\headrulewidth}{0.4pt}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\vfill
+\textsc{\LARGE Distributed Algorithm}\\[1.5cm]
+\textsc{\Large }\\[0.5cm]
+
+\HRule \\[0.4cm]
+{\huge \bfseries Assignment 03}\\[0.4cm]
+\HRule \\[1.5cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\large{\textbf{Group 11}}
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\begin{tabular}{ll}
+Xugang \textsc{Zhou} & 352032\\
+Fangzhou \textsc{Yang} & 352040\\
+Yuwen \textsc{Chen} & 352038
+\end{tabular}
+\end{flushright}
+\end{minipage}
+\vfill
+{\large \today}\\
+\end{center}
+\end{titlepage}
+\thispagestyle{fancy}
+
+\section{Election}
+
+\section{Termination}
+This algorithm can work properly.\\
+Proof: \\
+\begin{itemize}
+	\item $Terminated \Rightarrow S = R$:\\
+if a termination is detected, which means all processes are passive and no messages are on the way at a this time point. Thus all sent messages are received. Therefore, $S = R$.\\
+	\item $S = R \Rightarrow Terminated$:\\
+Assume the system is not terminated, then there is at least one message still one the way, or there is at least one active process. In Atom Model, actions are atomic and need no time, once a process receives a message, it can send out messages instantly. Therefore there is at least one message, which go through the boundary between the past and the future. Because each message has its own message id, assume the message's is x, then $x \in S $ and $x \notin R$, which is contradict to $S = R$. Therefore $$S = R \Rightarrow Terminated$$\\
+\end{itemize}
+
+\end{document}
+

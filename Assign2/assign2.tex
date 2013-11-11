@@ -43,10 +43,10 @@ The basic idea of improvement of the Echo-Algorithm by sending taboo nodes is to
 \begin {itemize}
 \item {\bf a. Ring with n nodes} \\
 In this structure, the number of edge and the number of nodes are both n, so the needed number of messages for a normal Echo-Algorithm is 2n. \\
-For Echo-Algorithm with taboo nodes, it only needs n messages, because the message goes only forwards.
+For Echo-Algorithm with taboo nodes, it also needs $2n$ messages if $n>2$. If it is a triangle, it needs only 4 messages.
 \item {\bf b. Binary X-tree of height h}\\
 In this structure, the number of nodes $n = 2^{h+1} - 1$, the number of edges $e = 2n - h -2 = 2^{h+2} - h -4$, so the needed number of messages for a normal Echo-Algorithm is $2*n = 2^{h+2}$.\\
-For Echo-Algorithm with taboo nodes, because of the taboo nodes, the messages will not be delivered between sons of a same parent, therefore the number of needed messages is $2*(n - (2^{h} -1)) = 2^{h+1}$
+For Echo-Algorithm with taboo nodes, because of the taboo nodes, the messages will not be delivered between sons of a same parent, therefore the number of needed messages is $2*(e - (2^{h} -1)) = 6 * 2^h - 2h - 6$
 \end {itemize}
 
 \section{Election}
