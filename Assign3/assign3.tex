@@ -8,6 +8,9 @@
 \lhead{{\bf Distributed Algorithm}\\WS 2013/14, Prof. Dr.-Ing. Jan Richling}
 \rhead{Assignmen 02}
 \renewcommand{\headrulewidth}{0.4pt}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
 \begin{document}
 \begin{titlepage}
 \begin{center}
@@ -39,6 +42,14 @@ Yuwen \textsc{Chen} & 352038
 \thispagestyle{fancy}
 
 \section{Election}
+\begin{enumerate}
+\item To guarantee the correctness of the election when a leaf node is an initiator, an extension should be add to the algorithm:\\
+ \emph{Leafs that are initiators send immediately after the explosion message also their contraction message with their ID}. \\
+Consider a special scenario where one leaf initiator $a$ owns the maximum id and it's connected to node $b$. During initialization $a$ sends an explorer to $b$, if it is the first explorer arriving at $b$, $b$ would not forward any further explorer from other nodes to $a$, since it's already explored. In that case $a$ would never receive an explorer, and thus would never announce its own id to the network. This leads to an incorrect election result. After adding the extension, $a$ get a chance to forward its own id and the algorithm can still work properly.
+
+\item The algorithm won't work on a non-tree topology, since it strongly depends on the contraction messages sent by leaves. As an example, in a ring topology there wouldn't be any leaf, which means no contraction message can be generated. In such a case the algorithm terminates after exploring phase and never enters contraction phase.
+
+\end{enumerate}
 
 \section{Termination}
 This algorithm can work properly.\\
