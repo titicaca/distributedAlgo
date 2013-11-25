@@ -1,0 +1,62 @@
+\documentclass[a4paper, 14pt]{article}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\title{\bf Assignment 05}
+\author{Xugang Zhou \\ Fangzhou Yang \\ Yuwen Chen}
+\pagestyle{fancy}
+\lhead{{\bf Distributed Algorithms}\\WS 2013/14, Prof. Dr.-Ing. Jan Richling}
+\rhead{Assignmen 05}
+\renewcommand{\headrulewidth}{0.4pt}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\vfill
+\textsc{\LARGE Distributed Algorithms}\\[1.5cm]
+\textsc{\Large }\\[0.5cm]
+
+\HRule \\[0.4cm]
+{\huge \bfseries Assignment 05}\\[0.4cm]
+\HRule \\[1.5cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Group Members:}\\
+Xugang \textsc{Zhou}\\
+Fangzhou \textsc{Yang}\\
+Yuwen \textsc{Chen}
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Tutor:} \\
+Daniel \textsc{Graff}\\
+\end{flushright}
+\end{minipage}
+\vfill
+{\large \today}\\
+\end{center}
+\end{titlepage}
+\thispagestyle{fancy}
+
+\section{Mutual Exclusion}
+
+\section{Distributed Garbage Collection}
+\begin{itemize}
+\item JAVA RMI: RMI uses a fairly straightforward mechanism for garbage collection, which is explained in detail in [1]. Any program which has a reference to an object must obtain a "lease" for the object.The lease, which is literally represented by a Lease object, entitles the program to use the object for a certain period of time.
+
+\item Microsoft DCOM: DCOM differentiates between interfaces and objects. Each has its own type of garbage collection support.
+    \begin{itemize}
+    \item Interfaces: Garbage collection of interfaces is handled through a manual reference counting mechanism. RemAddRef and RemRelease respectively add and release references to remote objects. To reduce the overhead by "multiplexing references", a single reference can actually stand for many references within a single program.
+    \item Objects: Garbage collection of Objects send keepalive messages periodically to objects as a way of pinging the objects to let them know they are still needed.
+    \end{itemize}
+\end{itemize}
+
+\section{Reference Counting}
+
+\section{Mark and Sweep}
+
+
+\newpage
+\bibliographystyle{plain}
+\bibliography{gc}{}
+\end{document}
