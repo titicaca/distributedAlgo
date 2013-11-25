@@ -54,8 +54,13 @@ Daniel \textsc{Graff}\\
 \section{Reference Counting}
 
 \section{Mark and Sweep}
-
-
+Mostly-concurrent algorithm [2] is aimed to avoid to freeze the system permanently during the garbage collection. The general idea is to trade off complete concurrency for better throughput, by allowing root locations to be written without using a barrier. The algorithm comprises four phases, which can be found in [2]: \\
+\begin{itemize}
+\item Initial marking pause: Suspend all mutators and record all objects directly reachable from the roots (globals, stacks, registers) of the system.
+\item Concurrent marking phase: Resume mutator operation. At the same time, initiate a concurrent marking phase, which marks a transitive closure of reachable objects. This closure is not guaranteed to contain all objects reachable at the end of marking, since concurrent updates of reference fields by the mutator may have prevented the marking phase from reaching some live objects. The algorithm also arranges to keep track of updates to reference fields in heap objects.
+\item Final marking pause: Suspend the mutators once again, and complete the marking phase by marking from the roots, considering modied reference fields in marked objects as additional roots. Since such fields contain the only references that the concurrent marking phase may not have observed, this ensures that the final transitive closure includes all objects reachable at the start of the final marking phase. It may also include some objects that became unreachable after they were marked. These will be collected during the next garbage collection cycle.
+\item Concurrent sweeping phase: Resume the mutators once again, and sweep concurrently over the heap, deallocating unmarked objects. Care must be taken not to deallocate newly-allocated objects. This can be accomplished by allocating objects "live" , at least during this phase.
+\end{itemize}
 \newpage
 \bibliographystyle{plain}
 \bibliography{gc}{}
