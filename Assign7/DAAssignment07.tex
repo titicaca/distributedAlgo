@@ -1,0 +1,59 @@
+\documentclass[a4paper, 14pt]{article}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\title{\bf Assignment 07}
+\author{Xugang Zhou \\ Fangzhou Yang \\ Yuwen Chen}
+\pagestyle{fancy}
+\lhead{{\bf Distributed Algorithms}\\WS 2013/14, Prof. Dr.-Ing. Jan Richling}
+\rhead{Assignmen 05}
+\renewcommand{\headrulewidth}{0.4pt}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\vfill
+\textsc{\LARGE Distributed Algorithms}\\[1.5cm]
+\textsc{\Large }\\[0.5cm]
+
+\HRule \\[0.4cm]
+{\huge \bfseries Assignment 05}\\[0.4cm]
+\HRule \\[1.5cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\large{\textbf{Group 11}}
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\begin{tabular}{ll}
+Xugang \textsc{Zhou} & 352032\\
+Fangzhou \textsc{Yang} & 352040\\
+Yuwen \textsc{Chen} & 352038
+\end{tabular}
+\end{flushright}
+\end{minipage}
+\vfill
+{\large \today}\\
+\end{center}
+\end{titlepage}
+\thispagestyle{fancy}
+
+\section{Vector Clocks Theory}
+
+\section{Vector Clocks Practical}
+
+It is possible to check termination by looking at the vector time stamps. For a vector of length $n$, when the current time stamp of the Initiator has fulfilled the following condition:
+\[ \forall i \in [0,n): V_i == 4\]
+Then the algorithm can be stated terminated, since such a vector indicates that every node has witnessed 4 local events(including two explorer sending events and two echo receiving events).
+
+\section{Relation between Time Stamps}
+
+\section{Distributed Deadlock Detection}
+The algorithm is implemented and tested on a logical unidirectional ring topology. At the initial stage a deadlock would be formed by setting up a circular waiting (every process is waiting for its successor). The Initiator start the detection procedure by sending a probe message to its successor.\\
+After a deadlock is detected, the initiator resolve it by releasing the resource it holds to the predecessor which is waiting.\\
+The algorithm can be applied to arbitrary topology by making an extension. In such a scenario before sending or passing a probe message, the process should be aware of the id of the process that is currently holding the resource, without which the third part of the probe message cannot be determined. That requires extra discovery procedure such as flooding or other neighbor discovering algorithms, which is outside the scope of deadlock detection. 
+
+\newpage
+\bibliographystyle{plain}
+\bibliography{gc}{}
+\end{document}
