@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2013.12.9)  16 DEC 2013 23:35
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2013.12.9)  16 DEC 2013 23:42
 entering extended mode
 **C:/Users/Titicaca/Documents/GitHub/distributedAlgo/Assign7/DAAssignment07.tex
 
@@ -126,11 +126,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Here is how much of TeX's memory you used:
  1121 strings out of 495362
  14182 string characters out of 3183463
- 68331 words of memory out of 3000000
+ 69331 words of memory out of 3000000
  4326 multiletter control sequences out of 15000+200000
  9406 words of font info for 33 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 28i,10n,43p,531b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 25i,10n,43p,531b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/Softwares/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Softw
 ares/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Softwares/CTEX/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><D:/Softwares/CTEX/MiKTeX/font
@@ -140,7 +140,7 @@ lic/amsfonts/cm/cmmi7.pfb><D:/Softwares/CTEX/MiKTeX/fonts/type1/public/amsfonts
 b><D:/Softwares/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Softwar
 es/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Softwares/CTEX/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
-Output written on DAAssignment07.pdf (3 pages, 119563 bytes).
+Output written on DAAssignment07.pdf (3 pages, 119821 bytes).
 PDF statistics:
  52 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

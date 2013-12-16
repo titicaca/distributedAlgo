@@ -54,8 +54,8 @@ Then the algorithm can be stated terminated, since such a vector indicates that 
 \section{Relation between Time Stamps}
 \begin{itemize}
 \item Vector Clocks: $a \rightarrow b \Leftrightarrow V(a) < V(b)$, which means $ a \rightarrow b \Rightarrow V(a) < V(b)$ , $V(a) < V(b) \Rightarrow a \rightarrow b$ and $\neg (V(a) < V(b) \vee V(b) < V(a)) \Rightarrow a||b$, $a||b \Rightarrow \neg (V(a) < V(b) \vee V(b) < V(a))$
-\item Exact Real Clocks: $a \rightarrow b \Rightarrow R(a) < R(b)$, The inverse does not apply, cause $R(a) < R(b) \Rightarrow a \rightarrow b \vee a||b$
-\item Lamport Clocks: $a \rightarrow b \Rightarrow L(a) < L(b)$, The inverse does not apply, cause $L(a) < L(b) \Rightarrow a \rightarrow b \vee a||b$
+\item Exact Real Clocks: $a \rightarrow b \Rightarrow R(a) < R(b)$ and $V(a) < V(b) \Rightarrow R(a) < R(b)$. The inverse does not apply, cause $R(a) < R(b) \Rightarrow a \rightarrow b \vee a||b$ and $R(a) < R(b) \Rightarrow V(a) < V(b) \vee V(a)||V(b)$
+\item Lamport Clocks: $a \rightarrow b \Rightarrow L(a) < L(b)$ and $V(a) < V(b) \Rightarrow L(a) < L(b)$. The inverse does not apply, cause $L(a) < L(b) \Rightarrow a \rightarrow b \vee a||b$ and $L(a) < L(b) \Rightarrow V(a) < V(b) \vee V(a)||V(b)$
 \end{itemize}
 
 \section{Distributed Deadlock Detection}
