@@ -1,0 +1,82 @@
+\documentclass[a4paper, 14pt]{article}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\title{\bf Assignment 08}
+\author{Xugang Zhou \\ Fangzhou Yang \\ Yuwen Chen}
+\pagestyle{fancy}
+\lhead{{\bf Distributed Algorithms}\\WS 2013/14, Prof. Dr.-Ing. Jan Richling}
+\rhead{Assignmen 08}
+\renewcommand{\headrulewidth}{0.4pt}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\vfill
+\textsc{\LARGE Distributed Algorithms}\\[1.5cm]
+\textsc{\Large }\\[0.5cm]
+
+\HRule \\[0.4cm]
+{\huge \bfseries Assignment 08}\\[0.4cm]
+\HRule \\[1.5cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\large{\textbf{Group 11}}
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\begin{tabular}{ll}
+Xugang \textsc{Zhou} & 352032\\
+Fangzhou \textsc{Yang} & 352040\\
+Yuwen \textsc{Chen} & 352038
+\end{tabular}
+\end{flushright}
+\end{minipage}
+\vfill
+{\large \today}\\
+\end{center}
+\end{titlepage}
+\thispagestyle{fancy}
+
+\section{Byzantine Generals Theory}
+
+In Byzantine Generals, a value is proposed by a distinguished process (commanding general), and it will be sent to other processes ((lieutenant generals) recursively. Processes receive values from others and propose a value by a majority function according to its received values. All correct processes will agree on the same value, and If the proposing process is fault-free, the proposed value is the value agreed on. \\
+
+The recursive algorithm for oral messages is described as follows:
+
+\begin{algorithm}
+\caption{recursive algorithm for oral messages}
+\begin{algorithmic}[1] %每行显示行号
+\State $Initial action at commander :OM(m,0,{1,...,n-1}, v)$
+\State $Initial action at lieutenant L: M_L = \{\}$
+
+\Function {OM} {$m,C,G,t$}
+    \For {$L in G$}
+        \State $send (m, G, C + ":" + t) TO L$;
+    \EndFor
+\EndFunction
+
+\State $when Lieutenant L receives Message$ (m,G,t)
+\Function {receive} {$m, G, t$}
+    \If {$(m, G, t) is pending$}
+        \State $M_L := M_L \cup t$;
+        \If {$m != 0$}
+            \State $OM(m-1, L, G \slash \{L\}, t)$
+        \EndIf
+    \EndIf
+\EndFunction
+
+\State $when Lieutenant P has received all message$
+\State $v:=tree_majority(M_L)$
+
+\end{algorithmic}
+\end{algorithm}
+
+%\newpage
+%\bibliographystyle{plain}
+%\bibliography{gc}{}
+\end{document} 
