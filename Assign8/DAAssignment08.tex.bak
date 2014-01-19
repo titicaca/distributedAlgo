@@ -2,11 +2,11 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-\title{\bf Assignment 07}
+\title{\bf Assignment 08}
 \author{Xugang Zhou \\ Fangzhou Yang \\ Yuwen Chen}
 \pagestyle{fancy}
 \lhead{{\bf Distributed Algorithms}\\WS 2013/14, Prof. Dr.-Ing. Jan Richling}
-\rhead{Assignmen 07}
+\rhead{Assignmen 08}
 \renewcommand{\headrulewidth}{0.4pt}
 \begin{document}
 \begin{titlepage}
@@ -16,7 +16,7 @@
 \textsc{\Large }\\[0.5cm]
 
 \HRule \\[0.4cm]
-{\huge \bfseries Assignment 07}\\[0.4cm]
+{\huge \bfseries Assignment 08}\\[0.4cm]
 \HRule \\[1.5cm]
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
