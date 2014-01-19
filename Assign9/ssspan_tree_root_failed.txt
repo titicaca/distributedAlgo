@@ -1,0 +1,31 @@
+#[graph.random]
+#teachnet.util.RandomTreeGraphGenerator
+#n=java.lang.Integer:7
+#h=java.lang.Integer:3
+#max=java.lang.Integer:4
+#min=java.lang.Integer:1
+
+[graph.random]
+teachnet.util.RandomConnectedGraphGenerator
+n=java.lang.Integer:7
+e=java.lang.Integer:11
+
+[network]
+teachnet.network.LinearDelayNetwork
+delay.min=java.lang.Double:0.2
+delay.max=java.lang.Double:0.8
+
+[stack.algorithms]
+SSSpanTree
+
+[stack.configs]
+0.node.id=java.lang.String:$node.id
+0.failedNode=java.lang.Integer:0
+#heartbeat rate
+0.rho=java.lang.Integer:1
+#configure that after 10 cycles of heartbeats(1*12=12sec.), node 0 gets failed
+0.failedPeriod=java.lang.Integer:8
+
+[inits]
+*,0,0.0
+
