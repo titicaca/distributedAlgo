@@ -1,8 +1,8 @@
 This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2014.1.7)  22 JAN 2014 11:04
 entering extended mode
-**C:/Users/Titicaca/Documents/GitHub/distributedAlgo/Assign8/DAAssignment08.tex
+**C:/Users/Titicaca/Documents/GitHub/distributedAlgo/Assign9/DAAssignment09.tex
 
-(C:/Users/Titicaca/Documents/GitHub/distributedAlgo/Assign8/DAAssignment08.tex
+(C:/Users/Titicaca/Documents/GitHub/distributedAlgo/Assign9/DAAssignment09.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for loaded.
 (D:\Softwares\CTEX\MiKTeX\tex\latex\base\article.cls
@@ -156,7 +156,7 @@ LaTeX Info: Redefining \] on input line 2667.
 LaTeX Warning: Unused global option(s):
     [14pt].
 
-(C:\Users\Titicaca\Documents\GitHub\distributedAlgo\Assign8\DAAssignment08.aux)
+(C:\Users\Titicaca\Documents\GitHub\distributedAlgo\Assign9\DAAssignment09.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
@@ -190,9 +190,12 @@ Overfull \hbox (5.41714pt too wide) in paragraph at lines 32--37
 [1
 
 {D:/Softwares/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 47.
+(D:\Softwares\CTEX\MiKTeX\tex\latex\base\omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 47.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -201,27 +204,26 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [1]
-(C:\Users\Titicaca\Documents\GitHub\distributedAlgo\Assign8\DAAssignment08.aux)
+(C:\Users\Titicaca\Documents\GitHub\distributedAlgo\Assign9\DAAssignment09.aux)
  ) 
 Here is how much of TeX's memory you used:
- 2325 strings out of 495362
- 29448 string characters out of 3183464
- 87493 words of memory out of 3000000
- 5497 multiletter control sequences out of 15000+200000
+ 2314 strings out of 495362
+ 29296 string characters out of 3183464
+ 84493 words of memory out of 3000000
+ 5483 multiletter control sequences out of 15000+200000
  10534 words of font info for 38 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 27i,10n,43p,503b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,10n,43p,882b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/Softwares/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Softw
 ares/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Softwares/CTEX/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><D:/Softwares/CTEX/MiKTeX/font
 s/type1/public/amsfonts/cm/cmmi10.pfb><D:/Softwares/CTEX/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmmi7.pfb><D:/Softwares/CTEX/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmr10.pfb><D:/Softwares/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pf
-b><D:/Softwares/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/Softwar
-es/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on DAAssignment08.pdf (2 pages, 112690 bytes).
+b><D:/Softwares/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on DAAssignment09.pdf (2 pages, 93238 bytes).
 PDF statistics:
- 45 PDF objects out of 1000 (max. 8388607)
+ 41 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
