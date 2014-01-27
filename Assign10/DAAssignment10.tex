@@ -52,7 +52,7 @@ Yuwen \textsc{Chen} & 352038
     \item Isolation: The effect of a transaction is not visible to other transactions until the transaction is committed.
     \item Durability: Changes made by committed transactions are permanent. After a transaction completes, the database ensures through its recovery mechanisms that changes from the transaction are not lost.
     \end {itemize}
-\item c). The ACID Properties are endangered by interfering concurrent transactions and by faulty environments. For example, if two clients are visiting and modifying the same data in the database system, or an fatal error happens during the execution of a transaction. 
+\item c). The ACID Properties are endangered by interfering concurrent transactions and by faulty environments. For example, if two clients are visiting and modifying the same data in the database system, or an fatal error happens during the execution of a transaction.
 
 \end{itemize}
 
@@ -65,10 +65,10 @@ Yuwen \textsc{Chen} & 352038
 \end{itemize}
 
 \section{Lock Escalation}
-
+The basic idea of Lock Escalation is that, threads starts locking items of fine granularity, if a thread acquires too many locks, the granularity of locks is increased. To achieve consistency of multiple different locks, strick Two Phase Locking will be applied, in which all write locks are hold until threads end. 
 
 \section{2PC}
-
+See the java files
 
 %\newpage
 %\bibliographystyle{plain}

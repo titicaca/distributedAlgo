@@ -42,15 +42,32 @@ Yuwen \textsc{Chen} & 352038
 \end{titlepage}
 \thispagestyle{fancy}
 
-\section{Self-Stabilizing Spanning Tree Theory}
+\section{Transactions}
 \begin{itemize}
-\item a.) if the root fails or the root are not reachable, another spanning tree with a different root node forms, else If other links or nodes fails, another spanning tree with the same root node forms; if local data structures corrupts, the node may declare itself as a root, but it will be suppressed after it receives the correct heart beat message from the original root, thus the spanning tree will stay the same; if message are lost, a timeout will occur, and the value of $P_f$ will be decreased. If $P_f \le 0$, this node will declare itself as a root, but it will also be suppressed after it receives the correct heart beat message from the original root, thus the spanning tree will stay the same, too.
-
-\item b.) If the topologies are changed in the self-stabilizing spanning tree, a new tree will be formed with a different root, because the root must always be the node with smallest ID.
-
-\item c.) We can use a shortest Path Algorithm to rank the topologies, so that the constructed self-stabilizing spanning tree can always have a good performance.
+\item a). Transaction is atomic execution of a set of instructions, which ensures consistency even in the face of failures. For example in a banking system, when a customer transfers money from a saving account to a checking account, the transaction must consist of three separate operations: 1.decrement the saving account; 2.Increment the checking account; 3. Record the transaction in the transaction journal. Now if an interrupting error happens between the first and second operation, then the database must roll back the entire transaction so that the balance of all accounts is correct. But if the three operations are separated and independent, then the transferred money will be missing.
+\item b). ACID Properties: \\
+    \begin{itemize}
+    \item Atomicity: All tasks of a transaction are performed or none if them are. There are no partial transactions.
+    \item Consistency: The transaction takes the database from one consistent state to another consistent state.
+    \item Isolation: The effect of a transaction is not visible to other transactions until the transaction is committed.
+    \item Durability: Changes made by committed transactions are permanent. After a transaction completes, the database ensures through its recovery mechanisms that changes from the transaction are not lost.
+    \end {itemize}
+\item c). The ACID Properties are endangered by interfering concurrent transactions and by faulty environments. For example, if two clients are visiting and modifying the same data in the database system, or an fatal error happens during the execution of a transaction.
 
 \end{itemize}
+
+\section{Properties of Schedules}
+\begin{itemize}
+\item a). A serial schedule is one in which no transaction starts until a running transaction has ended. A serializable schedule is equivalent to a serial schedule in its outcome, but the order in which the actions of transactions are executed is not the same, a transaction can start before other running transactions end.
+\item b). In Two Phase Locking, a thread must hod all locks until it needs no further lock, it ensures serializability but not recoverability, avoiding cascading aborts and also strict schedule. Because a thread can still read, write or commit the uncommitted data, which are already unlocked but no yet committed in other threads.
+\item c). In Strict Two Phase Locking, all write locks are hold until threads end. Thus, the data, that other threads read and write, are always committed.
+\item d). Keeping write locks until the end of a transaction guarantees other threads cannot read and write uncommitted data. However for read locks, it won't effect the consistency when other threads re-read and write data before it is committed.
+\end{itemize}
+
+\section{Lock Escalation}
+The basic idea of Lock Escalation is that, threads starts locking items of fine granularity, if a thread acquires too many locks, the granularity of locks is increased. 
+
+\section{2PC}
 
 
 %\newpage
