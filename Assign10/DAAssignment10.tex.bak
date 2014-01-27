@@ -1,0 +1,59 @@
+\documentclass[a4paper, 14pt]{article}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\title{\bf Assignment 10}
+\author{Xugang Zhou \\ Fangzhou Yang \\ Yuwen Chen}
+\pagestyle{fancy}
+\lhead{{\bf Distributed Algorithms}\\WS 2013/14, Prof. Dr.-Ing. Jan Richling}
+\rhead{Assignmen 10}
+\renewcommand{\headrulewidth}{0.4pt}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\vfill
+\textsc{\LARGE Distributed Algorithms}\\[1.5cm]
+\textsc{\Large }\\[0.5cm]
+
+\HRule \\[0.4cm]
+{\huge \bfseries Assignment 10}\\[0.4cm]
+\HRule \\[1.5cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\large{\textbf{Group 11}}
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\begin{tabular}{ll}
+Xugang \textsc{Zhou} & 352032\\
+Fangzhou \textsc{Yang} & 352040\\
+Yuwen \textsc{Chen} & 352038
+\end{tabular}
+\end{flushright}
+\end{minipage}
+\vfill
+{\large \today}\\
+\end{center}
+\end{titlepage}
+\thispagestyle{fancy}
+
+\section{Self-Stabilizing Spanning Tree Theory}
+\begin{itemize}
+\item a.) if the root fails or the root are not reachable, another spanning tree with a different root node forms, else If other links or nodes fails, another spanning tree with the same root node forms; if local data structures corrupts, the node may declare itself as a root, but it will be suppressed after it receives the correct heart beat message from the original root, thus the spanning tree will stay the same; if message are lost, a timeout will occur, and the value of $P_f$ will be decreased. If $P_f \le 0$, this node will declare itself as a root, but it will also be suppressed after it receives the correct heart beat message from the original root, thus the spanning tree will stay the same, too.
+
+\item b.) If the topologies are changed in the self-stabilizing spanning tree, a new tree will be formed with a different root, because the root must always be the node with smallest ID.
+
+\item c.) We can use a shortest Path Algorithm to rank the topologies, so that the constructed self-stabilizing spanning tree can always have a good performance.
+
+\end{itemize}
+
+
+%\newpage
+%\bibliographystyle{plain}
+%\bibliography{gc}{}
+\end{document} 

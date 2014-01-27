@@ -1,0 +1,76 @@
+\documentclass[a4paper, 14pt]{article}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\title{\bf Assignment 10}
+\author{Xugang Zhou \\ Fangzhou Yang \\ Yuwen Chen}
+\pagestyle{fancy}
+\lhead{{\bf Distributed Algorithms}\\WS 2013/14, Prof. Dr.-Ing. Jan Richling}
+\rhead{Assignmen 10}
+\renewcommand{\headrulewidth}{0.4pt}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\vfill
+\textsc{\LARGE Distributed Algorithms}\\[1.5cm]
+\textsc{\Large }\\[0.5cm]
+
+\HRule \\[0.4cm]
+{\huge \bfseries Assignment 10}\\[0.4cm]
+\HRule \\[1.5cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\large{\textbf{Group 11}}
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\begin{tabular}{ll}
+Xugang \textsc{Zhou} & 352032\\
+Fangzhou \textsc{Yang} & 352040\\
+Yuwen \textsc{Chen} & 352038
+\end{tabular}
+\end{flushright}
+\end{minipage}
+\vfill
+{\large \today}\\
+\end{center}
+\end{titlepage}
+\thispagestyle{fancy}
+
+\section{Transactions}
+\begin{itemize}
+\item a). Transaction is atomic execution of a set of instructions, which ensures consistency even in the face of failures. For example in a banking system, when a customer transfers money from a saving account to a checking account, the transaction must consist of three separate operations: 1.decrement the saving account; 2.Increment the checking account; 3. Record the transaction in the transaction journal. Now if an interrupting error happens between the first and second operation, then the database must roll back the entire transaction so that the balance of all accounts is correct. But if the three operations are separated and independent, then the transferred money will be missing.
+\item b). ACID Properties: \\
+    \begin{itemize}
+    \item Atomicity: All tasks of a transaction are performed or none if them are. There are no partial transactions.
+    \item Consistency: The transaction takes the database from one consistent state to another consistent state.
+    \item Isolation: The effect of a transaction is not visible to other transactions until the transaction is committed.
+    \item Durability: Changes made by committed transactions are permanent. After a transaction completes, the database ensures through its recovery mechanisms that changes from the transaction are not lost.
+    \end {itemize}
+\item c). The ACID Properties are endangered by interfering concurrent transactions and by faulty environments. For example, if two clients are visiting and modifying the same data in the database system, or an fatal error happens during the execution of a transaction. 
+
+\end{itemize}
+
+\section{Properties of Schedules}
+\begin{itemize}
+\item a). A serial schedule is one in which no transaction starts until a running transaction has ended. A serializable schedule is equivalent to a serial schedule in its outcome, but the order in which the actions of transactions are executed is not the same, a transaction can start before other running transactions end.
+\item b). In Two Phase Locking, a thread must hod all locks until it needs no further lock, it ensures serializability but not recoverability, avoiding cascading aborts and also strict schedule. Because a thread can still read, write or commit the uncommitted data, which are already unlocked but no yet committed in other threads.
+\item c). In Strict Two Phase Locking, all write locks are hold until threads end. Thus, the data, that other threads read and write, are always committed.
+\item d). Keeping write locks until the end of a transaction guarantees other threads cannot read and write uncommitted data. However for read locks, it won't effect the consistency when other threads re-read and write data before it is committed.
+\end{itemize}
+
+\section{Lock Escalation}
+
+
+\section{2PC}
+
+
+%\newpage
+%\bibliographystyle{plain}
+%\bibliography{gc}{}
+\end{document} 
