@@ -1,0 +1,25 @@
+[graph]
+# number of nodes
+7
+# connections
+0-1
+0-2
+0-3
+0-4
+0-5
+0-6
+
+[network]
+teachnet.network.LinearDelayNetwork
+delay.min=java.lang.Double:0.8
+delay.max=java.lang.Double:2.0
+
+[stack.algorithms]
+TwoPhaseCommit
+
+[stack.configs]
+0.node.id=java.lang.String:$node.id
+0.numProcesses=java.lang.Integer:7
+
+[inits]
+3,0,0.0

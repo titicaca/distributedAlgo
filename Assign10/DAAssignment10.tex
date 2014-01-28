@@ -60,15 +60,21 @@ Yuwen \textsc{Chen} & 352038
 \begin{itemize}
 \item a). A serial schedule is one in which no transaction starts until a running transaction has ended. A serializable schedule is equivalent to a serial schedule in its outcome, but the order in which the actions of transactions are executed is not the same, a transaction can start before other running transactions end.
 \item b). In Two Phase Locking, a thread must hod all locks until it needs no further lock, it ensures serializability but not recoverability, avoiding cascading aborts and also strict schedule. Because a thread can still read, write or commit the uncommitted data, which are already unlocked but no yet committed in other threads.
-\item c). In Strict Two Phase Locking, all write locks are hold until threads end. Thus, the data, that other threads read and write, are always committed.
-\item d). Keeping write locks until the end of a transaction guarantees other threads cannot read and write uncommitted data. However for read locks, it won't effect the consistency when other threads re-read and write data before it is committed.
+\item c). In Strict Two Phase Locking, all write locks are hold until threads end. Thus, the data that other threads read and write are always committed.
+\item d). Keeping write locks until the end of a transaction guarantees other threads cannot read and write uncommitted data. However for read locks, it won't affect the consistency when other threads re-read and write data before it is committed.
 \end{itemize}
 
 \section{Lock Escalation}
-The basic idea of Lock Escalation is that, threads starts locking items of fine granularity, if a thread acquires too many locks, the granularity of locks is increased. To achieve consistency of multiple different locks, strick Two Phase Locking will be applied, in which all write locks are hold until threads end. 
+The basic idea of Lock Escalation is that, threads starts locking items of fine granularity, if a thread acquires too many locks, the granularity of locks is increased, which results in a conversion from multiple fine-grained locks to fewer coarse-grained ones. 
+To achieve consistency of multiple different locks, when performing the lock escalation, the scope of each lock needs to be identified. Locks being consolidated should not have overlap fields.
 
 \section{2PC}
-See the java files
+In the implementation the test scenario will be set up by a single configuration file. The program execute periodically 3 test cases in turn of:
+\begin{itemize}
+\item successful completion - The Coordinator receives one commit command and after receiving all votes the commit will be performed.
+\item unsuccessful completion - The Coordinator receives one commit command but the transaction is aborted due to an abort vote from a certain node.
+\item abort command - The Coordinator receives an abort command and the transaction is aborted.
+\end{itemize}
 
 %\newpage
 %\bibliographystyle{plain}
